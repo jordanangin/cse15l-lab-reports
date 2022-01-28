@@ -2,17 +2,13 @@
 **Jordan Peranginangin (PID: A16798626)**
 
 ## **INSTALLING VSCODE**
-- Before any programming, an integrated development environment must be installed. For this course, we will be using Visual Studio Code. You can find the download link here:   
-
-    [https://code.visualstudio.com/](https://code.visualstudio.com/).  
+- Before any programming, an integrated development environment must be installed. For this course, we will be using Visual Studio Code. You can find the download link [here](https://code.visualstudio.com/).  
 
     On MacOS systems, hit download and drag the application to the "applications" folder. All you need now is to open the application and hit allow on any security prompts that may pop-up.
 
     ![image](installingvscode.png)
 ## **REMOTELY CONNECTING**
-- This section will cover how to remotely connect to a UCSD course-specific acccount on ieng6. Because I use a MacBook Pro, I didn't need to install OpenSSH; if you are using a Windows machine you will need to install [OpenSSH](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse). The next step is to change the password to your course-specific account here:
-
-    [Change Password Here](https://sdacs.ucsd.edu/~icc/index.php)
+- This section will cover how to remotely connect to a UCSD course-specific acccount on ieng6. Because I use a MacBook Pro, I didn't need to install OpenSSH; if you are using a Windows machine you will need to install [OpenSSH](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse). The next step is to change the password to your course-specific account [here](https://sdacs.ucsd.edu/~icc/index.php).
 
     The final step is to open terminal in Visual Studio Code and run the following command (change "adp" to match your account name):
 
@@ -63,16 +59,43 @@
 ## **OPTIMIZING REMOTE RUNNING**
 - This last section is about tricks/shortcuts that can shorten tedious processes of running programs remotely. 
 
-    The first trick is that you can use quotation marks around commands and place them after an ssh command to run the command on the remote computer and exit once it's finished. This command will log into the server, make a folder called testFolder, and then logout. 
+    The first trick is that you can use quotation marks around commands and place them after an ssh command to run the command on the remote computer and exit once it's finished. The command will log into the server, make a folder called testFolder, and then logout. Instead of 
+    ```
+    $ ssh cs15lwi22adp@ieng6.ucsd.edu
+    $ mkdir testFolder
+    $ logout
+    ```
+    you can use the following instead
     ```
     $ ssh cs15lwi22adp@ieng6.ucsd.edu "mkdir testFolder"
     ```
+    The first example uses 55 keystokes while the shortcut uses 50. Therefore, the second example is the optimal way to log into a server, make a folder, and logout.
 
-    The second trick is that multiple terminal commands can be run on the same line if they are separated by semicolons. This command will make a folder, list the contents of the current directory, and print out the contents of a file:
+    The second trick is that multiple terminal commands can be run on the same line if they are separated by semicolons. The command will make a folder, list the contents of the current directory, and print out the contents of a file. Instead of 
+    ```
+    $ mkdir testFolder
+    $ ls
+    $ cat secondfile.md
+    ```
+    you can use the following instead
     ```
     $ mkdir testFolder; ls; cat secondfile.md
     ```
+    The first example uses 37 keystokes while the shortcut uses 40. Although the first example is shorter than the second example by three characters, the first example requires three presses on the enter/return key while the second example only needs one. By not having to hit enter three times, the second example should be slightly faster when used in practice.
+    
+    The final trick is that you can use the up and down arrow keys to cycle through commands that were previously run in the terminal. This will definitely save you some time if you need to copy and paste commands into the terminal. In order to ssh, logout, and ssh back into ieng6, you would have to type
+    ```
+    $ ssh cs15lwi22adp@ieng6.ucsd.edu
+    $ logout
+    $ ssh cs15lwi22adp@ieng6.ucsd.edu
+    ```
+    an alternative way is to type
+    ```
+    $ ssh cs15lwi22adp@ieng6.ucsd.edu
+    $ logout
+    ```
+    and hit the up-arrow key twice and hit enter. 
 
-    The final trick is that you can use the up and down arrow keys to cycle through commands that were previously run in the terminal. This will definitely save you some time if you need to copy and paste commands into the terminal.
+    The first example uses 70 keystokes while the shortcut uses 42. Therefore, the second example is the optimal way to ssh, logout, and to ssh again.
 
     ![image](optimize.png)
